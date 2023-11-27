@@ -1,4 +1,4 @@
-<!-- chat.component.html -->
+<!-- chat.component.html
 <div class="container-fluid ">
   <div class="row">
       <div class="col-md-4 col-md-offset-4">
@@ -29,7 +29,7 @@
           </div>
       </div>
   </div>
-</div>
+</div> -->
 
 
 
@@ -97,7 +97,8 @@
         <li class="media" *ngFor="let message of messages" style="box-sizing: shadow;">
             <div class="media-body" style="padding: 10px; " [ngStyle]="{'text-align': message.sender === 'user' ? 'right' : 'left', 'color': message.sender === 'user' ? 'white' : 'black', 
             'background-color': message.sender === 'user' ? '#2c3e50' : 'white', 
-            'border-radius': message.sender === 'user' ? '0.3rem 0.3rem 0 0.3rem' : '0 0.3rem 0.3rem 0','width': message.sender === 'user' ? '90%' : '90%',}
+            'border-radius': message.sender === 'user' ? '0.5rem 0.5rem 0 0.5rem' : '0.5rem 0.5rem 0 0.5rem','width': message.sender === 'user' ? '90%' : '90%','margin-left': message.sender === 'user' ? '50px' : '0',
+            'margin-right': message.sender === 'user' ? '0' : '50px',}
             ">
                 {{ message.text }} 
             </div>
