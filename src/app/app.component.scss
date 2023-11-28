@@ -16,7 +16,9 @@ $break-big: 900px;
     -webkit-transition: $transition;
     transition:         $transition;
 }
-
+.rotate-up {
+    transform: rotate(-90deg);
+}
 body {
 	display: flex;
 	align-items: center;
