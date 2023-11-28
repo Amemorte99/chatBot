@@ -16,6 +16,7 @@ $break-big: 900px;
     -webkit-transition: $transition;
     transition:         $transition;
 }
+
 .rotate-up {
     transform: rotate(-90deg);
 }
@@ -38,7 +39,8 @@ body {
 	width: 100%;
 	min-width: 360px;
 	max-width: 1300px;
-	height: 92vh;
+	height: 110vh;
+	padding-bottom: 5px;
 	min-height: 300px;
 	max-height: 720px;
 	background: #E6EAEA;
