@@ -39,24 +39,7 @@
 		<div id="profile">
 			<div class="wrap">
 				<img id="profile-img" src="http://emilcarlsson.se/assets/mikeross.png" class="online" alt="" />
-				<p>ChatBot aide à l'orientation</p>
-				<i class="fa fa-chevron-down expand-button" aria-hidden="true"></i>
-				<div id="status-options">
-					<ul>
-						<li id="status-online" class="active"><span class="status-circle"></span> <p>Online</p></li>
-						<li id="status-away"><span class="status-circle"></span> <p>Away</p></li>
-						<li id="status-busy"><span class="status-circle"></span> <p>Busy</p></li>
-						<li id="status-offline"><span class="status-circle"></span> <p>Offline</p></li>
-					</ul>
-				</div>
-				<div id="expanded">
-					<label for="twitter"><i class="fa fa-facebook fa-fw" aria-hidden="true"></i></label>
-					<input name="twitter" type="text" value="mikeross" />
-					<label for="twitter"><i class="fa fa-twitter fa-fw" aria-hidden="true"></i></label>
-					<input name="twitter" type="text" value="ross81" />
-					<label for="twitter"><i class="fa fa-instagram fa-fw" aria-hidden="true"></i></label>
-					<input name="twitter" type="text" value="mike.ross" />
-				</div>
+				<p>ChatOrientation</p>
 			</div>
 		</div>
 		<div id="search">
@@ -72,42 +55,31 @@
 	<div class="content">
 		<div class="contact-profile">
 			<img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
-			<p>Harvey Specter</p>
-			<div class="social-media">
-				<i class="fa fa-facebook" aria-hidden="true"></i>
-				<i class="fa fa-twitter" aria-hidden="true"></i>
-				 <i class="fa fa-instagram" aria-hidden="true"></i>
-			</div>
+			<p class="contact-name fw-bold abs">v1.1</p>
+			
 		</div>
 		<div class="messages">
-			<ul>
 		
-		
+	<ul class="media-list ">
+		<li class="media" *ngFor="let message of messages">
+		  <div class="media-left" *ngIf="message.sender === 'user'">
+			<img class="media-object" src="http://emilcarlsson.se/assets/mikeross.png" alt="...">
+		  </div>
+		  <div class="media-body" [ngClass]="{'sent': message.sender === 'user', 'replies': message.sender !== 'user'}" [ngStyle]="{'width': message.sender === 'user' ? '90%' : '90%','margin-left': message.sender === 'user' ? '2rem' : '0',
+		  'margin-right': message.sender === 'user' ? '0' : '0.75rem'}">
+			<p>{{ message.text }}</p>
+			<div class="media-right " *ngIf="message.sender !== 'user'" [ngStyle]="{'width': message.sender === 'user' ? '5%' : '5%'}">
+				<img class="media-object " src="http://emilcarlsson.se/assets/harveyspecter.png" alt="...">
+			  </div>
+		  </div>
+		 
+		</li>
 
-				<li class="sent">
-					<img src="http://emilcarlsson.se/assets/mikeross.png" alt="" />
-					<p>What are you talking about? You do what they say or they shoot you.</p>
-				</li>
-				<li class="replies">
-					<img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
-					<p>Wrong. You take the gun, or you pull out a bigger one. Or, you call their bluff. Or, you do any one of a hundred and forty six other things.</p>
-				</li>
-			</ul>
-      <ul class="media-list">
-        <li class="media" *ngFor="let message of messages" style="box-sizing: shadow;">
-            <div class="media-body" style="padding: 10px; " [ngStyle]="{'text-align': message.sender === 'user' ? 'right' : 'left', 'color': message.sender === 'user' ? 'white' : 'black', 
-            'background-color': message.sender === 'user' ? '#2c3e50' : 'white', 
-            'border-radius': message.sender === 'user' ? '0.5rem 0.5rem 0 0.5rem' : '0.5rem 0.5rem 0 0.5rem','width': message.sender === 'user' ? '90%' : '90%','margin-left': message.sender === 'user' ? '50px' : '0',
-            'margin-right': message.sender === 'user' ? '0' : '50px',}
-            ">
-                {{ message.text }} 
-            </div>
-        </li>
-        
-    </ul>
-		</div>
+	  </ul>
+	  
+	</div>
 		
-		<div class="panel-footer" >
+		<div class="panel-footer mt--5" >
 			<form (ngSubmit)="sendMessage()" >
 			  <div class="input-group" >
 				<input type="text" class="form-control" placeholder="Enter Message" [(ngModel)]="userMessage" name="messageText"  style="border: 1.5px solid #2c3e50;">
@@ -120,8 +92,7 @@
 				  </button>
 				</span>
 			  </div>
-			  <div class="mt-5"></div>
-			  <div class="mt-5"></div>
+			  
 			</form>
 			
 			

@@ -37,12 +37,11 @@ body {
 
 #frame {
 	width: 100%;
-	min-width: 360px;
-	max-width: 1300px;
-	height: 110vh;
+	min-width: 460px;
+	
+	height: 99vh;
 	padding-bottom: 5px;
-	min-height: 300px;
-	max-height: 720px;
+	
 	background: #E6EAEA;
 	@media screen and (max-width: 360px) {
 			width: 100%;
@@ -559,6 +558,8 @@ body {
 		height: 100%;
 		overflow: hidden;
 		position: relative;
+		padding-bottom: 1.2rem;
+		padding-left: 0.5rem;
 		@media screen and (max-width: $break) {
 			width: calc(100% - 58px);		
 			min-width: 300px !important;
@@ -749,6 +750,105 @@ body {
 		}
 	}
 }
+.sent, .replies {
+	display: flex;
+	align-items: center;
+	margin-bottom: 15px;
+  }
+  
+  .sent {
+	justify-content: flex-end;
+  }
+  
+  .replies {
+	justify-content: flex-start;
+  }
+  
+  .sent img, .replies img {
+	width: 22px;
+	height: 22px;
+	border-radius: 50%;
+	margin: 0 10px;
+  }
+  
+  .sent p, .replies p {
+	max-width: 80%;
+	word-wrap: break-word;
+	padding: 10px 20px;
+	border-radius: 18px;
+	line-height: 130%;
+  }
+  
+  .sent p {
+	background-color: #435f7a; // Or any color you prefer
+	color: white;
+	border-bottom-right-radius: 0;
+	order: 2; // To align the text to the right
+  }
+  
+  .replies p {
+	background-color: #f5f5f5; // Or any color you prefer
+	color: black;
+	border-bottom-left-radius: 0;
+	order: 1;
+  }
+  
+  // To place the image on the opposite side of the text
+  .sent img {
+	order: 1;
+  }
+  
+  .replies img {
+	order: 2;
+  }
+  
+  .messages {
+	padding: 10px 20px;
+	display: flex;
+	flex-direction: column;
+  }
+  
+  // Scrollbar styling if needed
+  .messages::-webkit-scrollbar {
+	width: 8px;
+  }
+  
+  .messages::-webkit-scrollbar-thumb {
+	background-color: #2c3e50; // Or any color you prefer
+  }
+  
+  .messages::-webkit-scrollbar-track {
+	background: #E6EAEA; // Or any color you prefer
+  }
+  
 
-
+.media-list {
+	.media {
+	  display: flex;
+	  align-items: center;
+	  margin-bottom: 15px;
+	}
+	.sent {
+	  flex-direction: row-reverse;
+	  .media-body p {
+		background-color: #435f7a; // Replace with your preferred color
+		color: white;
+		padding: 10px 15px;
+		border-radius: 18px 18px 0 18px;
+	  }
+	}
+	.replies {
+	  .media-body p {
+		background-color: #f5f5f5; // Replace with your preferred color
+		color: black;
+		padding: 10px 15px;
+		border-radius: 18px 18px 18px 0;
+	  }
+	}
+	.media-left, .media-right {
+	  img {
+		border-radius: 50%;
+	  }
+	}
+  }
   
