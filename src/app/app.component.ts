@@ -28,5 +28,10 @@ export class AppComponent {
       this.userMessage = '';
     }
   }
+
+
+  refresh(){
+    window.location.reload();
+  }
   
 }
